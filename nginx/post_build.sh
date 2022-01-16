@@ -1,0 +1,3 @@
+# TODO: Ah, this is how we're doing resolution. Not on localhost...
+sed -i -e "s/proxy_pass http:\/\/127\.0\.0\.1/proxy_pass http:\/\/${NGINX_PROXY_URL}/" /etc/nginx/conf.d/flask.conf
+

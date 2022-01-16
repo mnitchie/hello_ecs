@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello, ECS</title>
+    </head>
+    <script>
+        const doIt = () => {
+            fetch('/api').then(response => response.text()).then(data => alert(data))
+        }
+    </script>
+    <body>
+        <button onclick="doIt()">Do it</button>
+    </body>
+</html>

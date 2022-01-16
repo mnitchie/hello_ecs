@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  helloecs_nginx:
+    # TODO: Point this to my personal one
+    image: 007818600463.dkr.ecr.us-east-1.amazonaws.com/helloecs_react:latest
+    ports:
+      - 0.0.0.0:80:80
+    command: bash -c "nginx-debug -g 'daemon off;'"
+    networks:
+      - hello_ecs
+
+  helloecs_flask:
+    image: 007818600463.dkr.ecr.us-east-1.amazonaws.com/helloecs_flask:latest
+

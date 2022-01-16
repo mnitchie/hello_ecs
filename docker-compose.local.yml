@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  helloecs_nginx:
+    ports:
+      - 6700:80
+    stdin_open: true
+    tty: true
+
+  helloecs_flask:
+    stdin_open: true
+    tty: true
+
+networks:
+  hello_ecs:
+    driver: bridge

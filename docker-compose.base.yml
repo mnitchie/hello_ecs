@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  helloecs_nginx:
+    container_name: helloecs_react
+    restart: unless-stopped
+    build: ./nginx
+    env_file: .env
+    command: bash -c "nginx-debug -g 'daemon off;'"
+    networks:
+      - hello_ecs
+
+  helloecs_flask:
+    container_name: helloecs_flask
+    restart: unless-stopped
+    build:
+      context: ./server
+    env_file: .env
+    command: bash -c "gunicorn app:app -c config/gunicorn.conf --log-level debug --log-file=-"
+    networks:
+      - hello_ecs
+
+networks:
+  hello_ecs:
+    driver: bridge
